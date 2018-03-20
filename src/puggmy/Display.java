@@ -29,7 +29,7 @@ public class Display extends Graphic {
 	
 
 	public static void main(String[] args) throws IOException {
-		Graphic.init();
+	//	Graphic.init();
 		begin();
 		
 
