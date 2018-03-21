@@ -29,8 +29,9 @@ public class Display extends Graphic {
 	
 
 	public static void main(String[] args) throws IOException {
-	//	Graphic.init();
-		begin();
+		Graphic app = new Graphic();
+		app.setVisible(true);
+//		begin();
 		
 
 	}
