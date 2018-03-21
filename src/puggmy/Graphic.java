@@ -39,10 +39,10 @@ public class Graphic extends JFrame{
 		
 		ButtonGroup radioGroup = new ButtonGroup();
 		radioGroup.add(getEcrypt());
-		radioGroup.add(decrypt);
+		radioGroup.add(getDecrypt());
 		container.add(getEcrypt());
 		getEcrypt().setSelected(true);
-		container.add(decrypt);
+		container.add(getDecrypt());
 		
 		getNewKeyButton().addActionListener(new ButtonEventListener());
 		getGoButton().addActionListener(new ButtonEventListener());
@@ -74,8 +74,8 @@ public class Graphic extends JFrame{
 		return inputText;
 	}
 
-	public static void setInputText(JTextField inputText) {
-		Graphic.inputText = inputText;
+	public static void setInputText(JTextField string) {
+		Graphic.inputText = string;
 	}
 
 	public static JTextField getOutputText() {
@@ -102,31 +102,13 @@ public class Graphic extends JFrame{
 		Graphic.goButton = goButton;
 	}
 
+	public static JRadioButton getDecrypt() {
+		return decrypt;
+	}
 
-	
-	
-	
-	
-//	public static void init() {
-//		JFrame newJ = new JFrame("Puggmy 1.0.0");
-//		//newJ.setSize(1500, 500);
-//        newJ.setResizable(false); 
-//       // newJ.setUndecorated(true);
-//        newJ.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        
-//        JButton button = new JButton("Button 1 (PAGE_START)");
-//        newJ.add(button, BorderLayout.PAGE_START);
-//
-//       
-//        
-// 
-//     
-//       
-//        
-//       
-//        newJ.setBounds(locationX, locationY, sizeWidth, sizeHeight);
-//        newJ.setVisible(true);
-//	}
-	
+	public static void setDecrypt(JRadioButton decrypt) {
+		Graphic.decrypt = decrypt;
+	}
+
 	
 }

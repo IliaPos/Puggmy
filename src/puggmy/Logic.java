@@ -6,22 +6,8 @@ import java.io.InputStreamReader;
 import java.util.Random;
 
 public class Logic {
-	public static void encrypter() throws IOException {
-		String key;
-		BufferedReader reader = new BufferedReader( new InputStreamReader (System.in));	
-		System.out.println("Input the Key: ");
-		System.out.print("To create a random number, write \"random\": ");
-		String stringKey = reader.readLine();
+	public static String encrypter(String startedText , String key)  {
 		
-			if (stringKey.equals("random") ) {
-				key = randomNewKey();
-				System.out.println("Your key is: " + key);
-					
-			} else {
-				key = stringKey;
-			}
-		System.out.println("Enter the text, which you want to encrypt");
-		String startedText = reader.readLine();
 		char [] arrayStartedText = startedText.toCharArray();
 		char [] arrayMediumNumbers = new char[startedText.length()];
 		char [] arrayKeyChars = key.toCharArray();
@@ -32,10 +18,7 @@ public class Logic {
 		int i4 = Character.getNumericValue(arrayKeyChars[3]);
 		i2 = i2-9;
 		i4 = i4-9;
-//		System.out.println(i1);
-//		System.out.println(i2);
-//		System.out.println(i3);
-//		System.out.println(i4);
+
 		for(int i=0;i<startedText.length();i++) {
 			arrayMediumNumbers[i] = (char) (arrayStartedText[i] + i1);
 			arrayMediumNumbers[i] = (char) (arrayMediumNumbers[i] + i2);
@@ -43,13 +26,13 @@ public class Logic {
 			arrayMediumNumbers[i] = (char) (arrayMediumNumbers[i] + i4);
 		}
 		startedText = new String(arrayMediumNumbers);
-		output(startedText);
-		
+
+		return startedText;
 	}
 	
 	
 
-	private static String randomNewKey() {	
+	public static String randomNewKey() {	
 		
 		
 		int number1, number2;
@@ -66,16 +49,10 @@ public class Logic {
 
 
 
-	public static void decrypter() throws IOException {
-		String key;
-		BufferedReader reader = new BufferedReader( new InputStreamReader (System.in));	
-		System.out.println("Input the Key: ");
-		String stringKey = reader.readLine();
-		
-		key = stringKey;
+	public static String decrypter(String startedText , String key) {
 
-		System.out.println("Enter the text, which you want to decrypt");
-		String startedText = reader.readLine();
+
+
 		char [] arrayStartedText = startedText.toCharArray();
 		char [] arrayMediumNumbers = new char[startedText.length()];
 		char [] arrayKeyChars = key.toCharArray();
@@ -86,10 +63,7 @@ public class Logic {
 		int i4 = Character.getNumericValue(arrayKeyChars[3]);
 		i2 = i2-9;
 		i4 = i4-9;
-//		System.out.println(i1);
-//		System.out.println(i2);
-//		System.out.println(i3);
-//		System.out.println(i4);
+
 		for(int i=0;i<startedText.length();i++) {
 			arrayMediumNumbers[i] = (char) (arrayStartedText[i] - i1);
 			arrayMediumNumbers[i] = (char) (arrayMediumNumbers[i] - i2);
@@ -97,22 +71,9 @@ public class Logic {
 			arrayMediumNumbers[i] = (char) (arrayMediumNumbers[i] - i4);
 		}
 		startedText = new String(arrayMediumNumbers);
-		output(startedText);
+
+		return startedText;
 	}
 
-	private static void output(String actualText) {
-		
-		System.out.println("Successful!");
-		for (int i=0;i<actualText.length();i++) {
-			System.out.print("-");
-		}
-		System.out.println("-");
-		System.out.println(actualText);
-		for (int i=0;i<actualText.length();i++) {
-			System.out.print("-");
-		}
-		System.out.println("-");
-		
-	}
 
 }

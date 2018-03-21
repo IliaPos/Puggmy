@@ -11,11 +11,24 @@ public class ButtonEventListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String actualKey ;
+		String actualInputText = Graphic.getInputText().getText();
 		String  message = "";
 		if (e.getSource() == Graphic.getNewKeyButton()){
-				message += "Button1 was pressed\n";
-			} else if (e.getSource() == Graphic.getGoButton()){
-				message += "Button2 was pressed\n";
+				String newKey = Logic.randomNewKey();
+				Graphic.getInputForKey().setText(newKey);
+				message += newKey;
+				actualKey = newKey;
+		} else {
+			actualKey = Graphic.getInputForKey().getText();
+		}
+		if (e.getSource() == Graphic.getGoButton()){
+				if (Graphic.getEcrypt().isSelected()) {
+					Graphic.getOutputText().setText(Logic.encrypter(actualInputText, actualKey));
+				} else if (Graphic.getDecrypt().isSelected()) {
+					Graphic.getOutputText().setText(Logic.decrypter(actualInputText, actualKey));
+				}
+				
 			}
 		
 //		message += "Button1 was pressed\n";
