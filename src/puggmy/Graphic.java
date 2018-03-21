@@ -24,7 +24,7 @@ public class Graphic extends JFrame{
 	public static int locationY = (screenSize.height - sizeHeight) / 2;
 	
 	public Graphic() {
-		super("Puggmy");
+		super("Puggmy (v2.0.0)");
 		this.setBounds(locationX, locationY, sizeWidth, sizeHeight);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
